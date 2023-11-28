@@ -18,6 +18,13 @@ export default {
       '8xl': ['96px', '106px']
     },
     extend: {
+      transitionDuration: {
+        '1500': '1500ms',
+        '2000': '2000ms'
+      },
+      animation: {
+        fade: 'fadeIn 5s ease-out',
+      },
       fontFamily: {
         palanquin: ['Palanquin', 'sans-serif'],
         montserrat: ['Montserrat', 'sans-serif'],
@@ -27,9 +34,11 @@ export default {
         mulish: ['Mulish', 'sans-serif']
       },
       colors: {
+        'main': "#9EBBF1",
         'primary': "#2788E2",
         'sec': "#42B4EE",
-        'grey' : "#3F4756"
+        'grey' : "#3F4756",
+        'footer': "#51565E"
       },
       boxShadow: {
         '3xl': '0 10px 40px rgba(0, 0, 0, 0.1)'
@@ -43,7 +52,7 @@ export default {
       },
       borderWidth: {
         '1': '1px',
-      }
+      },
     },
   },
   plugins: [],

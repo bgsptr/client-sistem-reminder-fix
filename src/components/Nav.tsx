@@ -2,7 +2,7 @@ import Hero from "./Hero.tsx";
 import Rectangle from "./RectangleHome";
 
 import { Login, Register } from "./home/home.js";
-import CompanyLogo from "../assets/images/Logo 1.png";
+import CompanyLogo from "../assets/CompanyLogo.svg";
 
 const Nav = () => {
   return (

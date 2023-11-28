@@ -3,7 +3,7 @@ import React from "react";
 import Nav from "../components/Nav";
 import Card from "../components/Card";
 import CarCard from "../assets/images/Rectangle 72.png";
-
+import Footer from "../components/Footer";
 
 const App = () => {
   return (
@@ -50,6 +50,7 @@ const App = () => {
       <div className=" bg-[#9EBBF1] w-full min-h-screen flex flex-col text-5xl items-center">
 
       </div>
+      <Footer />
     </div>
   );
 };
