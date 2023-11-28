@@ -1,0 +1,5 @@
+.filter-chevron {
+    filter: invert(49%) sepia(12%) saturate(238%) hue-rotate(359deg) brightness(85%) contrast(86%);
+    width: 42px;
+    height: 42px;
+}

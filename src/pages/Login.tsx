@@ -1,5 +1,5 @@
 import carLogin from "../assets/images/Rectangle 5.png";
-import fbLogo from "../assets/images/fb-logo.png";
+import fbLogo from "../assets/fb-logo.svg";
 
 import GoogleLogo from "../components/GoogleLogo.tsx";
 
