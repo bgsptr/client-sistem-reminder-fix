@@ -1,28 +1,25 @@
+import { Suspense } from "react";
 import { Route, Routes } from "react-router-dom";
-import { Suspense, lazy } from "react";
-
-import "./index.css";
-
-import App from "./pages/App";
+// import { AuthProvider } from "./context/authContext";
+import Maps from "./pages/Maps";
+// import App from "./App";
+// import { EventProvider } from "./context/EventContext";
+import LandingPage from "./pages/LandingPage";
 import Login from "./pages/Login";
 import Dashboard from "./pages/Dashboard";
-import ProductDetail from "./pages/ProductDetail";
-import CategoryProduct from "./pages/CategoryProduct";
 
 const Root = () => {
   return (
-    <Suspense fallback={<h1>Loading...</h1>}>
-      <Routes>
-        <Route path="/" element={<Dashboard />} />
-        <Route path="p">
-          <Route path=":DetailProduct" element={<ProductDetail />} />
-        </Route>
-        <Route path="cat">
-          <Route path=":CatCar" element={<CategoryProduct />} />
-        </Route>
-        <Route path="/home" element={<App />} />
-        <Route path="/login" element={<Login />} />
-      </Routes>
+    <Suspense>
+        <Routes>
+          {/* <AuthProvider> */}
+          {/* <Route path="/login" element={<Login />} /> */}
+          <Route path="/" element={<Maps />} />
+          <Route path="/home" element={<LandingPage />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/dashboard" element={<Dashboard />} />
+          {/* </AuthProvider> */}
+        </Routes>
     </Suspense>
   );
 };
