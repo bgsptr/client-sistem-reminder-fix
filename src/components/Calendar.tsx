@@ -1,129 +1,60 @@
 import React, { useEffect, useState } from "react";
+import useDateDay from "../hooks/useDateDay";
 
 const Calendar = () => {
-  const year = localStorage.getItem("year");
-  const month = localStorage.getItem("month");
 
-  const [yearSaved, setYearSaved] = useState(year);
-  const [monthSaved, setMonthSaved] = useState(month);
+  const { getYear, getMonth, setMonth, setYear } = useDateDay();
 
-  const months = [
-    "January",
-    "February",
-    "March",
-    "April",
-    "May",
-    "June",
-    "July",
-    "August",
-    "September",
-    "October",
-    "November",
-    "December",
-  ];
+  const [dateDays, setDateDays] = useState([]);
 
-  const days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
-
-  const [getDateDay, setDateDay] = useState([]);
-
-  const [getAllDay, setAllDay] = useState([]);
+  const [daysAWeek] = useState(["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"])
 
   useEffect(() => {
-    const date = new Date();
-    const setMonth = date.getMonth() + 1;
-    const setYear = date.getFullYear();
-    localStorage.setItem("month", String(setMonth));
-    localStorage.setItem("year", String(setYear));
-  }, []);
+    const daysInMonth = new Date(getYear, getMonth, 0).getDate();
+    const firstDayOfMonth = new Date(getYear, getMonth - 1, 1).getDay();
 
-  useEffect(() => {
-    const allDays = [];
-    const daysInMonth = new Date(Number(year), Number(month), 0);
-    const lenDaysInMonth = daysInMonth.getDate();
+    const days = [];
+    let dayCounter = 1;
 
-    for (let i = 1; i <= lenDaysInMonth; i++) {
-      allDays.push(i);
+    for (let i = 0; i < 6; i++) {
+      const week = [];
+      for (let j = 0; j < 7; j++) {
+        if ((i === 0 && j < firstDayOfMonth) || dayCounter > daysInMonth) {
+          week.push("");
+        } else {
+          week.push(dayCounter++);
+        }
+      }
+      days.push(week);
+      if (dayCounter > daysInMonth) break;
     }
 
-    console.log(allDays);
-    setAllDay(allDays);
-  }, [year, month]);
+    setDateDays(days);
+  }, [getYear, getMonth]);
 
   useEffect(() => {
-    const newDateDay = getAllDay.map((day) => {
-      const dayInMonth = new Date(Number(year), Number(month) - 1, day);
-      const key = dayInMonth.getDay();
-      switch (key) {
-        case 0:
-          return "Sun";
-        case 1:
-          return "Mon";
-        case 2:
-          return "Tue";
-        case 3:
-          return "Wed";
-        case 4:
-          return "Thu";
-        case 5:
-          return "Fri";
-        case 6:
-          return "Sat";
-        default:
-          return "";
-      }
-    });
-
-    // setDateDay(date => ({
-    //   ...date,
-    //   newDateDay
-    // }))
-    setDateDay(newDateDay)
-  }, [getAllDay, year, month]);
-
-  useEffect(() => {
-    console.log(getDateDay.filter(day => day === "Sun").length);
-    console.log(getDateDay);
-  }, [getDateDay]);
+    console.log('aa: ', dateDays)
+    console.log()
+  }, [dateDays])
 
   return (
     <div>
       <div className="grid grid-cols-7 items-center border-b-2 w-full">
-        {days.map((data) => (
-          <div className="ml-[2.75rem]">{data}</div>
+        {daysAWeek.map((day, index) => (
+          <div key={index} className="ml-[2.75rem]">
+            {day}
+          </div>
         ))}
       </div>
-      {/* {getAllDay.map((i, data) =>
-        i % 7 != 0 ? (
-          <div className="flex justify-around items-center border-b-2 w-full">
-            <div className="">{data + 1}</div>
-          </div>
-        ) : (
-          <div>{data + 1}</div>
-        )
-      )}
-      <div className="flex justify-around items-center border-b-2 w-full">
-        {getAllDay.map((i, data) =>
-          i % 7 != 0 ? (
-            <div className="">{data + 1}</div>
-          ) : (
-            <div className="flex flex-wrap">
-              <div className="">1</div>
+      {dateDays.map((week, weekIndex) => (
+        <div key={weekIndex} className="grid grid-cols-7 items-center border-b-2 w-full">
+          {week.map((day, dayIndex) => (
+            <div key={dayIndex} className={`ml-[3rem] h-full relative border-r-2 ${(dateDays[0].indexOf(1) >= 5) ? `mb-[3.7rem] top-7` : `mb-[4.75rem] top-9`}`}>
+              {day}
             </div>
-          )
-        )}
-      </div> */}
-
-      {getDateDay.map((date, day) => {
-        if (day == "sat") {
-          return (
-            <div className="grid grid-cols-7 items-center border-b-2 w-full">
-              {getDateDay.slice(date, date + 7).map((idx, datas) => (
-                <div className="ml-[3rem] mb-[4.75rem]">{idx}</div>
-              ))}
-            </div>
-          );
-        }
-      })}
+          ))}
+        </div>
+      ))}
     </div>
   );
 };
