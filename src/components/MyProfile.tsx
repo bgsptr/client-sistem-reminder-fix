@@ -1,7 +1,10 @@
 import React from "react";
 import chad from "/public/chad.png";
+import useDateDay from "../hooks/useDateDay";
 
 const MyProfile = () => {
+  const { leftComponentClicked, rightComponentClicked } = useDateDay();
+
   return (
     <div className="py-7 px-11 font-poppins w-full">
       {/* header */}
@@ -19,28 +22,28 @@ const MyProfile = () => {
       {/* header */}
 
       {/* user information */}
-      <div className="mt-5 border-[#D9D9D9] border-[1.5px] shadow-md text-[#666666]">
+      <div className="mt-5 border-[#D9D9D9] border-[1.5px] shadow-md text-[#666666] h-30">
         <div className="py-4 px-9">
-          <div className="flex gap-7">
-            <img src={chad} alt="chad" className="basis-1/5" />
+          <div className="flex gap-x-7">
+            <img src={chad} alt="chad" className="w-[10rem]" />
             <div className="text-sm flex flex-col justify-between">
               <div className="">
                 Nama:{" "}
-                <span className="absolute right-[27rem]">Kelvin Kusuma</span>
+                <span className={`absolute ${leftComponentClicked ? `right-[24.2rem]` : `left-[23rem]`}`}>Kelvin Kusuma</span>
               </div>
               <div className="">
                 No. Telp:{" "}
-                <span className="absolute right-[27rem]">087899507840</span>
+                <span className={`absolute ${leftComponentClicked ? `right-[24.2rem]` : `left-[23rem]`}`}>087899507840</span>
               </div>
               <div className="">
                 Email:{" "}
-                <span className="absolute left-[42.2rem]">
+                <span className={`absolute ${leftComponentClicked ? `left-[44rem]` : `left-[23rem]`}`}>
                   kelvinkusuma@gmail.com
                 </span>
               </div>
               <div className="">
                 Alamat:{" "}
-                <span className="absolute left-[42.2rem]">
+                <span className={`absolute ${leftComponentClicked ? `left-[44rem]` : `left-[23rem]`}`}>
                   Jln. Nakula Sadewa, no.1, ds.bukit, kec.jimbaran, kab.badung,
                   prov.bali
                 </span>

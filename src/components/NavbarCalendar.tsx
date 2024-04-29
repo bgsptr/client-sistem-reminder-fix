@@ -5,7 +5,17 @@ import leftChev from "/public/dashboarddd/left-chev.svg";
 import rightChev from "/public/dashboarddd/right-chev.svg";
 
 const NavbarCalendar = () => {
-  const { monthToString, getMonth, getYear, setYear, setMonth } = useDateDay();
+  const {
+    monthToString,
+    getMonth,
+    getYear,
+    setYear,
+    setMonth,
+    leftComponentClicked,
+    setLeftComponentClicked,
+    rightComponentClicked,
+    setRightComponentClicked,
+  } = useDateDay();
 
   const clickPrevNext = (e) => {
     console.log(e.target.alt);
@@ -25,6 +35,14 @@ const NavbarCalendar = () => {
     }
   };
 
+  const leftPopup = (e) => {
+    setLeftComponentClicked(!leftComponentClicked);
+  };
+
+  const rightPopup = (e) => {
+    setRightComponentClicked(!rightComponentClicked);
+  };
+
   // useEffect(() => {
   //   console.log(getMonth);
   // }, [getMonth])
@@ -32,22 +50,26 @@ const NavbarCalendar = () => {
   return (
     <div className="w-full border-b-gray border-b-2 text-md">
       <div className="w-full flex items-center gap-x-12">
-        <img className="my-5 ml-10" src={popup} />
+        <button onClick={leftPopup}>
+          <img className="my-5 ml-10" src={popup} />
+        </button>
         <p>Dashboard/calendar</p>
         <div className="flex items-center gap-x-6">
           <button onClick={clickPrevNext}>
-            <img src={leftChev} alt="prev" />
+            <img src={leftChev} alt="prev" className="outline-none" />
           </button>
           <button onClick={clickPrevNext}>
-            <img src={rightChev} alt="next" />
+            <img src={rightChev} alt="next" className="outline-none" />
           </button>
           <p className="ml-5">
             {monthToString[getMonth - 1]} {getYear}
           </p>
         </div>
-        <div className="fixed flex items-center right-5 gap-x-[3rem]">
+        <div className="absolute flex items-center right-[20rem] gap-x-[3rem]">
           <div className="border-slate-300 border-2 h-7 w-[10rem]"></div>
-          <img className="my-5 mr-7" src={popup} />
+          <button onClick={rightPopup}>
+            <img className="my-5 mr-7" src={popup} />
+          </button>
         </div>
       </div>
     </div>

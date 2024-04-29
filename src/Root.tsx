@@ -7,6 +7,7 @@ import Maps from "./pages/Maps";
 import LandingPage from "./pages/LandingPage";
 import Login from "./pages/Login";
 import Dashboard from "./pages/Dashboard";
+import Base from "./pages/Base";
 
 const Root = () => {
   return (
@@ -17,7 +18,7 @@ const Root = () => {
           <Route path="/" element={<Maps />} />
           <Route path="/home" element={<LandingPage />} />
           <Route path="/login" element={<Login />} />
-          <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="/dashboard" element={<Base />} />
           {/* </AuthProvider> */}
         </Routes>
     </Suspense>

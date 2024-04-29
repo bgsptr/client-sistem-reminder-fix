@@ -21,12 +21,19 @@ export const CalendarProvider = ({ children }) => {
   const [getYear, setYear] = useState(2024);
   const [getMonth, setMonth] = useState(4);
 
+  const [leftComponentClicked, setLeftComponentClicked] = useState(false)
+  const [rightComponentClicked, setRightComponentClicked] = useState(false)
+
   const calendarContextValue = {
     monthToString,
     getYear,
     getMonth,
     setYear,
     setMonth,
+    leftComponentClicked,
+    setLeftComponentClicked,
+    rightComponentClicked,
+    setRightComponentClicked
   };
 
   return (
