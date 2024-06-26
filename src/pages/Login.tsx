@@ -22,15 +22,15 @@ const Login = () => {
   return (
     <div className="h-screen w-full relative font-poppins">
       <div className="flex justify-between h-full">
-        <div className="bg-black w-full h-full">dsad</div>
+        <div className="bg-black w-full h-full" />
         <img src={bg} alt="bg" />
       </div>
       <div className="absolute top-4 w-full">
         <img src={logo} alt="logo" className="mx-[6rem] mb-[2rem] w-1/6" />
         <div className="flex justify-center">
-          <div className="bg-[#FFFFFF] w-2/5 h-[30rem] rounded-md">
+          <div className="bg-[#FFFFFF] w-1/3 rounded-2xl h-[32rem]">
             <div className="mx-20 my-9 flex flex-col gap-y-3">
-              <div className="flex flex-col gap-y-1">
+              <div className="flex flex-col gap-y-3">
                 <label htmlFor="" className="text-[15px]">
                   Create Email
                 </label>
@@ -50,7 +50,7 @@ const Login = () => {
                 </div>
                 {/* component input email */}
               </div>
-              <div className="flex flex-col gap-y-1">
+              <div className="flex flex-col gap-y-3">
                 <label htmlFor="" className="text-[15px]">
                   Create Password
                 </label>
@@ -78,7 +78,7 @@ const Login = () => {
               </div>
               {/* component input password */}
 
-              <div className="flex flex-col gap-y-1">
+              <div className="flex flex-col gap-y-3">
                 <label htmlFor="" className="text-[15px]">
                   Create Password Confirm
                 </label>

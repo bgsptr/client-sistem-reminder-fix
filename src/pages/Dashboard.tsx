@@ -20,7 +20,7 @@ const Dashboard = () => {
   return (
     <div className="flex w-full h-screen ">
       {leftComponentClicked && <Sidebar />}
-      <div className="flex flex-col basis-[70%] flex-auto">
+      <div className="flex flex-col basis-[710%] flex-auto">
         {/* <CalendarProvider> */}
         <>
           <div className={`${!leftComponentClicked ? `w-[72%]` : ""}`}>

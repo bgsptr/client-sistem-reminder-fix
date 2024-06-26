@@ -5,7 +5,7 @@ import useDateDay from "../hooks/useDateDay";
 
 const Sidebar = () => {
   return (
-    <div className="border-[1.5px] border-r-[#D3CCF6] basis-[30%] h-full flex justify-center font-poppins">
+    <div className="border-[1.5px] border-r-[#D3CCF6] basis-[25%] h-full flex justify-center font-poppins">
       <div className="my-3 flex flex-col items-center gap-y-8 w-3/4">
         <img src={logo} alt="" className="w-3/4" />
         <button className="shadow-sm p-2 w-full">Create Events</button>

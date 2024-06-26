@@ -85,7 +85,7 @@ const Calendar = () => {
   return (
     <div>
       {modal && (
-        <div className="absolute z-[10] bg-white shadow-md rounded-lg left-[20%] w-1/2 top-2 bottom-2 h-9/10 font-popins">
+        <div className="absolute z-[10] bg-white shadow-md rounded-lg left-[20%] w-1/2 top-2 bottom-2 h-9/10   font-popins">
           <div className="flex items-center justify-between p-7">
             <h1 className="text-2xl">CREATE EVENTS</h1>
             <button onClick={(e) => setModal(false)}>
